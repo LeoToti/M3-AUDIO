@@ -26,6 +26,9 @@ window.onload = () => {
     });
 }
 
+//       Ex2) Create a dropdown (<select>) that allows the user to select between name, username and email. 
+//            Create then a filter. When the user types in something, you should filter the user based on the input and on the value of the select.
+//            Es.: select on NAME. Filter input = Glenna, only user id number 9 should remain
 
 const searchUsersFun = () => {
     const searchUsers = document.getElementById("searchUsers").value;
@@ -38,10 +41,10 @@ const searchUsersFun = () => {
     });
 }
 
-//       Ex2) Create a dropdown (<select>) that allows the user to select between name, username and email. 
-//            Create then a filter. When the user types in something, you should filter the user based on the input and on the value of the select.
-//            Es.: select on NAME. Filter input = Glenna, only user id number 9 should remain
+
+
 //       Ex3) Create a function that, from the list of users, extracts only the name
+
 //       Ex4) Create a function that, from the list of users, creates an array of addresses as string and not as an object. Like:
 //               {
 //               "street": "Victor Plains",
