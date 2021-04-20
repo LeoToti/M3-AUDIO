@@ -64,10 +64,6 @@ const searchInputFun = () => {
              </tr>
             `;
     })
-
-    // searchedUsersArray.forEach((usersData) => {
-    //     Users.innerHTML += `<option value="Name: ${usersData.name} | Username: ${usersData.username} | Email: ${usersData.email}">Name: ${usersData.name} | Username: ${usersData.username} | Email: ${usersData.email}</option>`;
-    // });
 }
 
 
