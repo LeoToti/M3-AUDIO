@@ -3,18 +3,39 @@
 //       1 Exercise each. Use GitHub to share the code.
 //       Less exercise, more complicated. 
 //       Ex1) Get and present, using async / await pattern the users from: https://jsonplaceholder.typicode.com/users 
-async function fetchUsers() {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
-    const data = await response.json();
-    return data;
+
+let MainUsersArray = []
+window.onload = () => {
+    async function fetchUsersJSON() {
+        try {
+            const response = await fetch('https://jsonplaceholder.typicode.com/users');
+            const jsonedData = await response.json();
+            [...MainUsersArray] = [...jsonedData]
+            return jsonedData;
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+    fetchUsersJSON().then((usersArray) => {
+        const Users = document.getElementById("Users");
+        usersArray.forEach((usersData) => {
+            Users.innerHTML += `<option value="Name: ${usersData.name} | Username: ${usersData.username} | Email: ${usersData.email}">Name: ${usersData.name} | Username: ${usersData.username} | Email: ${usersData.email}</option>`;
+        });
+    });
 }
 
-window.onload = () => {
-    async function getUsersData() {
-        const Users = await fetchUsers()
-        console.log('Users:', Users)
-    }
-    getUsersData()
+
+const searchUsersFun = () => {
+    const searchUsers = document.getElementById("searchUsers").value;
+    const Users = document.getElementById("Users");
+    Users.innerHTML = ""
+
+    const searchedUsersArray = MainUsersArray.filter(Users => Users.name.toLowerCase().indexOf(searchUsers) !== -1);
+    searchedUsersArray.forEach((usersData) => {
+        Users.innerHTML += `<option value="Name: ${usersData.name} | Username: ${usersData.username} | Email: ${usersData.email}">Name: ${usersData.name} | Username: ${usersData.username} | Email: ${usersData.email}</option>`;
+    });
 }
 
 //       Ex2) Create a dropdown (<select>) that allows the user to select between name, username and email. 
